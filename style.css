@@ -166,3 +166,16 @@ body.light-mode .movie-info span {
 .movie:hover {
     transform: scale(1.05);
 }
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--primary-color);
+}
