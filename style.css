@@ -179,3 +179,12 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
     background: var(--primary-color);
 }
+
+.search {
+    transition: width 0.4s ease-in-out;
+    width: 200px;
+}
+
+.search:focus {
+    width: 300px;
+}
