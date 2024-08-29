@@ -188,3 +188,79 @@ body::-webkit-scrollbar-track {
 .search:focus {
     width: 300px;
 }
+
+#pagination button {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#pagination button:hover {
+    background-color: #50597b;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .movie {
+        width: 45%; /* Adjust the width for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .movie {
+        width: 100%; /* Full width on mobile devices */
+        margin: 0.5rem 0; /* Adjust margin for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .movie-info h3 {
+        font-size: 1rem; /* Adjust title size */
+    }
+
+    .movie-info span {
+        font-size: 0.875rem; /* Adjust rating size */
+    }
+
+    .overview {
+        padding: 1rem; /* Reduce padding for overview */
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-info h3 {
+        font-size: 0.875rem;
+    }
+
+    .movie-info span {
+        font-size: 0.75rem;
+    }
+
+    .search {
+        width: 100%; /* Search bar full width on mobile */
+    }
+}
+
+#pagination {
+    flex-direction: column; /* Stack buttons on top of each other */
+    align-items: center;
+}
+
+#pagination button {
+    width: 100%; /* Full width buttons */
+    margin-bottom: 0.5rem; /* Space between buttons */
+}
+
+@media (min-width: 481px) {
+    #pagination {
+        flex-direction: row; /* Horizontal layout on larger screens */
+    }
+
+    #pagination button {
+        width: auto; /* Default width */
+        margin-bottom: 0;
+    }
+}
+
+.movie img {
+    width: 100%; /* Ensure images are responsive */
+    height: auto;
+}
