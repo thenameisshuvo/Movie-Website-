@@ -6,6 +6,10 @@ const main = document.getElementById('main')
 const form = document.getElementById('form')
 const search = document.getElementById('search')
 
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+let currentPage = 1;
+
 // Get initial movies
 getMovies(API_URL)
 
@@ -14,6 +18,7 @@ async function getMovies(url) {
     const data = await res.json()
 
     showMovies(data.results)
+    updatePagination(data.page, data.total_pages);
 }
 
 function showMovies(movies) {
@@ -28,13 +33,13 @@ function showMovies(movies) {
         movieEl.innerHTML = `
             <img src="${IMG_PATH + poster_path}" alt="${title}">
             <div class="movie-info">
-          <h3>${title}</h3>
-          <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+                <h3>${title}</h3>
+                <span class="${getClassByRate(vote_average)}">${vote_average}</span>
             </div>
             <div class="overview">
-          <h3>Overview</h3>
-          ${overview}
-        </div>
+                <h3>Overview</h3>
+                ${overview}
+            </div>
         `
         main.appendChild(movieEl)
     })
@@ -49,6 +54,22 @@ function getClassByRate(vote) {
         return 'red'
     }
 }
+
+function updatePagination(page, totalPages) {
+    currentPage = page;
+    prev.disabled = page === 1;
+    next.disabled = page === totalPages;
+}
+
+prev.addEventListener('click', () => {
+    if (currentPage > 1) {
+        getMovies(`${API_URL}&page=${currentPage - 1}`);
+    }
+});
+
+next.addEventListener('click', () => {
+    getMovies(`${API_URL}&page=${currentPage + 1}`);
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()

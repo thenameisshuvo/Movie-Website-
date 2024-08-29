@@ -110,3 +110,23 @@ main {
 .movie:hover .overview {
   transform: translateY(0);
 }
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+#pagination button {
+    background-color: var(--secondary-color);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+#pagination button:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+}
