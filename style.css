@@ -158,3 +158,11 @@ body.light-mode .movie-info span {
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
+
+.movie {
+    transition: transform 0.3s ease-in-out;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+}
